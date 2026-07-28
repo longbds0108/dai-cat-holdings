@@ -1,7 +1,8 @@
 <header class="sticky top-0 z-50 bg-surface/95 backdrop-blur border-b border-line">
   <div class="container-page flex items-center justify-between h-20">
-    <a href="<%= basePath %>/" class="font-display text-xl tracking-widest2 text-primary">
-      <%= t('site.name') %>
+    <a href="<%= basePath %>/" class="flex items-center gap-3">
+      <img src="/images/logo-256.png" alt="<%= t('site.name') %>" class="h-14 w-14 object-contain" />
+      <span class="hidden sm:block font-display text-lg tracking-widest2 text-primary"><%= t('site.name') %></span>
     </a>
 
     <nav class="hidden md:flex items-center gap-8">
