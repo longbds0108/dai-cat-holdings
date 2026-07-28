@@ -25,8 +25,8 @@ module.exports = {
         line: '#D6D3D1',
       },
       fontFamily: {
-        display: ['"Cinzel"', 'serif'],
-        body: ['"Josefin Sans"', 'sans-serif'],
+        display: ['"Be Vietnam Pro"', 'sans-serif'],
+        body: ['"Be Vietnam Pro"', 'sans-serif'],
       },
       letterSpacing: {
         widest2: '0.25em',
