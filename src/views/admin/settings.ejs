@@ -1,8 +1,12 @@
 <form method="post" action="/admin/settings" class="space-y-6 max-w-xl">
   <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
   <div>
-    <label class="form-label">Số điện thoại công ty</label>
+    <label class="form-label">Số điện thoại chính</label>
     <input type="text" name="company_phone" class="form-input" value="<%= settings.company_phone || '' %>" />
+  </div>
+  <div>
+    <label class="form-label">Số điện thoại phụ</label>
+    <input type="text" name="company_phone_2" class="form-input" value="<%= settings.company_phone_2 || '' %>" />
   </div>
   <div>
     <label class="form-label">Email công ty</label>
@@ -17,8 +21,8 @@
     <input type="url" name="social_facebook" class="form-input" value="<%= settings.social_facebook || '' %>" />
   </div>
   <div>
-    <label class="form-label">LinkedIn</label>
-    <input type="url" name="social_linkedin" class="form-input" value="<%= settings.social_linkedin || '' %>" />
+    <label class="form-label">Zalo</label>
+    <input type="url" name="social_zalo" class="form-input" value="<%= settings.social_zalo || '' %>" />
   </div>
   <button type="submit" class="btn-primary">Lưu cài đặt</button>
 </form>

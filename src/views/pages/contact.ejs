@@ -50,7 +50,9 @@
         <p class="eyebrow mb-4"><%= t('contact.office_title') %></p>
         <ul class="space-y-3 text-ink">
           <li><%= settings.company_address %></li>
-          <li><%= settings.company_phone %></li>
+          <li>
+            <%= settings.company_phone %><% if (settings.company_phone_2) { %> / <%= settings.company_phone_2 %><% } %>
+          </li>
           <li><%= settings.company_email %></li>
         </ul>
       </div>

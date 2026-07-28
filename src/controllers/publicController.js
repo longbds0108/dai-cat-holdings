@@ -1,14 +1,6 @@
 const { validationResult } = require('express-validator');
-const { Project, NewsPost, Inquiry, SiteSetting } = require('../models');
+const { Project, NewsPost, Inquiry } = require('../models');
 const { sendContactNotification } = require('../services/mailer');
-
-async function getSettings() {
-  const rows = await SiteSetting.findAll();
-  return rows.reduce((acc, row) => {
-    acc[row.key] = row.value;
-    return acc;
-  }, {});
-}
 
 function localize(record, field, locale) {
   const key = `${field}${locale === 'en' ? 'En' : 'Vi'}`;
@@ -18,17 +10,15 @@ function localize(record, field, locale) {
 exports.home = async (req, res, next) => {
   try {
     const { locale } = req;
-    const [featuredProjects, latestNews, settings] = await Promise.all([
+    const [featuredProjects, latestNews] = await Promise.all([
       Project.findAll({ where: { isFeatured: true, isPublished: true }, order: [['createdAt', 'DESC']], limit: 3 }),
       NewsPost.findAll({ where: { isPublished: true }, order: [['publishedAt', 'DESC']], limit: 3 }),
-      getSettings(),
     ]);
 
     res.render('pages/home', {
       title: null,
       featuredProjects,
       latestNews,
-      settings,
       localize: (record, field) => localize(record, field, locale),
     });
   } catch (err) {
@@ -123,24 +113,17 @@ exports.newsDetail = async (req, res, next) => {
   }
 };
 
-exports.contactPage = async (req, res, next) => {
-  try {
-    const settings = await getSettings();
-    res.render('pages/contact', { title: res.locals.t('contact.title'), settings, errors: [], values: {} });
-  } catch (err) {
-    next(err);
-  }
+exports.contactPage = (req, res) => {
+  res.render('pages/contact', { title: res.locals.t('contact.title'), errors: [], values: {} });
 };
 
 exports.contactSubmit = async (req, res, next) => {
   try {
     const errors = validationResult(req);
-    const settings = await getSettings();
 
     if (!errors.isEmpty()) {
       return res.status(400).render('pages/contact', {
         title: res.locals.t('contact.title'),
-        settings,
         errors: errors.array(),
         values: req.body,
       });

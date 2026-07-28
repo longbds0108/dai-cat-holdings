@@ -103,6 +103,7 @@ app.use((req, res) => {
   res.locals.t = res.locals.t || ((key) => translate(locale, key));
   res.locals.currentPath = res.locals.currentPath || req.path;
   res.locals.otherLocale = res.locals.otherLocale || (locale === 'vi' ? 'en' : 'vi');
+  res.locals.settings = res.locals.settings || {};
   res.status(404).render('pages/404', { title: '404' });
 });
 

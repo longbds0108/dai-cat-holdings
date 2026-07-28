@@ -18,9 +18,11 @@
     <div>
       <div class="eyebrow text-white/60 mb-4"><%= t('footer.contact_info') %></div>
       <ul class="space-y-2 text-sm">
-        <li>Tầng 20, Tòa nhà Đại Cát, Quận 1, TP. Hồ Chí Minh</li>
-        <li>+84 28 1234 5678</li>
-        <li>contact@daicatholdings.vn</li>
+        <li><%= settings.company_address %></li>
+        <li>
+          <%= settings.company_phone %><% if (settings.company_phone_2) { %> / <%= settings.company_phone_2 %><% } %>
+        </li>
+        <li><%= settings.company_email %></li>
       </ul>
     </div>
   </div>
