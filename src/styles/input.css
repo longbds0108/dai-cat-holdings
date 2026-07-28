@@ -10,7 +10,10 @@
     @apply bg-surface text-ink font-body antialiased;
   }
   h1, h2, h3, h4 {
-    @apply font-display text-primary;
+    @apply font-display;
+    /* No forced color here on purpose: headings should inherit color from their
+       container (body text-ink on light sections, text-white on dark ones) so a
+       heading dropped into a dark card doesn't silently render dark-on-dark. */
   }
   ::selection {
     @apply bg-accent text-white;

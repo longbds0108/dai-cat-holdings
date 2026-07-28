@@ -75,7 +75,10 @@ app.use((req, res, next) => {
     success: req.flash('success'),
     error: req.flash('error'),
   };
-  res.locals.csrfToken = generateToken(req, res);
+  // validateOnReuse=false: if the browser sends a stale/invalid csrf cookie (e.g. left
+  // over from a previous session), silently issue a fresh token instead of throwing —
+  // only the actual doubleCsrfProtection check on form submission should ever reject.
+  res.locals.csrfToken = generateToken(req, res, false, false);
   next();
 });
 
