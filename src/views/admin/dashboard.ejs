@@ -1,0 +1,45 @@
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+  <div class="card p-6">
+    <p class="text-xs text-ink-muted uppercase tracking-widest2 mb-2">Dự án</p>
+    <p class="font-display text-3xl text-primary"><%= projectCount %></p>
+  </div>
+  <div class="card p-6">
+    <p class="text-xs text-ink-muted uppercase tracking-widest2 mb-2">Tin tức</p>
+    <p class="font-display text-3xl text-primary"><%= newsCount %></p>
+  </div>
+  <div class="card p-6">
+    <p class="text-xs text-ink-muted uppercase tracking-widest2 mb-2">Liên hệ mới</p>
+    <p class="font-display text-3xl text-accent"><%= newInquiries %></p>
+  </div>
+</div>
+
+<h2 class="font-display text-lg text-primary mb-4">Liên hệ gần đây</h2>
+<div class="card overflow-x-auto">
+  <table class="w-full text-sm">
+    <thead class="bg-surface-muted text-left text-xs uppercase tracking-widest2 text-ink-muted">
+      <tr>
+        <th class="px-4 py-3">Họ tên</th>
+        <th class="px-4 py-3">Email</th>
+        <th class="px-4 py-3">Trạng thái</th>
+        <th class="px-4 py-3">Ngày gửi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% recentInquiries.forEach(inq => { %>
+        <tr class="border-t border-line">
+          <td class="px-4 py-3"><%= inq.name %></td>
+          <td class="px-4 py-3"><%= inq.email %></td>
+          <td class="px-4 py-3">
+            <span class="px-2 py-1 text-xs <%= inq.status === 'new' ? 'bg-accent/10 text-accent' : 'bg-surface-muted text-ink-muted' %>">
+              <%= inq.status === 'new' ? 'Mới' : 'Đã xử lý' %>
+            </span>
+          </td>
+          <td class="px-4 py-3 text-ink-muted"><%= new Date(inq.createdAt).toLocaleDateString('vi-VN') %></td>
+        </tr>
+      <% }) %>
+      <% if (recentInquiries.length === 0) { %>
+        <tr><td colspan="4" class="px-4 py-6 text-center text-ink-muted">Chưa có liên hệ nào.</td></tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

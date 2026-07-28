@@ -1,0 +1,28 @@
+<section class="py-20 border-b border-line">
+  <div class="container-page" data-reveal>
+    <p class="eyebrow mb-3"><%= t('nav.news') %></p>
+    <h1 class="section-title mb-4"><%= t('news.title') %></h1>
+    <p class="text-ink-muted max-w-xl"><%= t('news.subtitle') %></p>
+  </div>
+</section>
+
+<section class="py-20">
+  <div class="container-page">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-reveal-stagger>
+      <% posts.forEach(post => { %>
+        <%- include('../partials/news-card', { post, localize }) %>
+      <% }) %>
+    </div>
+
+    <% if (totalPages > 1) { %>
+      <div class="flex justify-center gap-2 mt-16">
+        <% for (let p = 1; p <= totalPages; p++) { %>
+          <a
+            href="?page=<%= p %>"
+            class="w-10 h-10 flex items-center justify-center border <%= p === currentPage ? 'bg-primary text-white border-primary' : 'border-line text-ink hover:border-primary' %>"
+          ><%= p %></a>
+        <% } %>
+      </div>
+    <% } %>
+  </div>
+</section>

@@ -1,0 +1,78 @@
+<section class="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
+  <img src="<%= project.coverImage %>" alt="<%= localize(project, 'title') %>" class="absolute inset-0 w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-primary/10"></div>
+  <div class="relative container-page pb-16 text-white" data-reveal>
+    <a href="<%= basePath %>/projects" class="text-white/70 text-xs tracking-widest2 uppercase mb-4 inline-block hover:text-accent-light">
+      &larr; <%= t('projects.back_to_list') %>
+    </a>
+    <p class="eyebrow text-accent-light mb-3"><%= project.location %></p>
+    <h1 class="font-display text-4xl md:text-6xl text-white max-w-3xl"><%= localize(project, 'title') %></h1>
+  </div>
+</section>
+
+<section class="py-20">
+  <div class="container-page grid grid-cols-1 lg:grid-cols-3 gap-16">
+    <div class="lg:col-span-2" data-reveal>
+      <p class="text-lg text-ink leading-relaxed mb-10"><%= localize(project, 'summary') %></p>
+      <div class="prose max-w-none text-ink leading-relaxed whitespace-pre-line"><%= localize(project, 'description') %></div>
+
+      <% if (project.images && project.images.length > 0) { %>
+        <div class="mt-16">
+          <p class="eyebrow mb-6"><%= t('projects.gallery') %></p>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4" data-reveal-stagger>
+            <% project.images.forEach(src => { %>
+              <div class="aspect-[4/3] overflow-hidden" data-reveal-item>
+                <img src="<%= src %>" alt="<%= localize(project, 'title') %>" loading="lazy" class="w-full h-full object-cover" />
+              </div>
+            <% }) %>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+    <aside class="lg:col-span-1" data-reveal>
+      <div class="card p-8 sticky top-28">
+        <dl class="space-y-4 mb-8 text-sm">
+          <div class="flex justify-between border-b border-line pb-3">
+            <dt class="text-ink-muted"><%= t('projects.filter_type') %></dt>
+            <dd class="font-medium"><%= project.type %></dd>
+          </div>
+          <div class="flex justify-between border-b border-line pb-3">
+            <dt class="text-ink-muted"><%= t('projects.filter_status') %></dt>
+            <dd class="font-medium"><%= t('projects.status_' + project.status) %></dd>
+          </div>
+          <% if (project.areaText) { %>
+          <div class="flex justify-between border-b border-line pb-3">
+            <dt class="text-ink-muted"><%= t('projects.area_label') %></dt>
+            <dd class="font-medium"><%= project.areaText %></dd>
+          </div>
+          <% } %>
+          <% if (project.priceFromText) { %>
+          <div class="flex justify-between border-b border-line pb-3">
+            <dt class="text-ink-muted"><%= t('projects.price_label') %></dt>
+            <dd class="font-medium text-accent"><%= project.priceFromText %></dd>
+          </div>
+          <% } %>
+        </dl>
+
+        <form method="post" action="<%= basePath %>/contact" class="space-y-4">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <input type="hidden" name="projectId" value="<%= project.id %>" />
+          <div>
+            <label class="form-label"><%= t('contact.form_name') %></label>
+            <input type="text" name="name" required class="form-input" />
+          </div>
+          <div>
+            <label class="form-label"><%= t('contact.form_phone') %></label>
+            <input type="tel" name="phone" class="form-input" />
+          </div>
+          <div>
+            <label class="form-label"><%= t('contact.form_email') %></label>
+            <input type="email" name="email" required class="form-input" />
+          </div>
+          <button type="submit" class="btn-primary w-full"><%= t('projects.register_interest') %></button>
+        </form>
+      </div>
+    </aside>
+  </div>
+</section>

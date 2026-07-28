@@ -1,0 +1,20 @@
+<a href="<%= basePath %>/projects/<%= project.slug %>" class="group block card overflow-hidden" data-reveal-item>
+  <div class="relative aspect-[4/3] overflow-hidden bg-surface-muted">
+    <img
+      src="<%= project.coverImage %>"
+      alt="<%= localize(project, 'title') %>"
+      loading="lazy"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+    />
+    <span class="absolute top-4 left-4 bg-primary text-white text-[10px] tracking-widest2 uppercase px-3 py-1.5">
+      <%= t('projects.status_' + project.status) %>
+    </span>
+  </div>
+  <div class="p-6">
+    <p class="text-xs text-ink-muted mb-2"><%= project.location %></p>
+    <h3 class="font-display text-xl text-primary mb-2 group-hover:text-accent transition-colors duration-250">
+      <%= localize(project, 'title') %>
+    </h3>
+    <p class="text-sm text-ink-muted line-clamp-2"><%= localize(project, 'summary') %></p>
+  </div>
+</a>

@@ -1,0 +1,56 @@
+{
+  "name": "dai-cat-holdings-website",
+  "version": "1.0.0",
+  "description": "Website chính thức của ĐẠI CÁT HOLDINGS - Real estate corporate website with admin CMS",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "concurrently -k -n SERVER,CSS -c green,cyan \"nodemon app.js\" \"npm:css:watch\"",
+    "css:build": "tailwindcss -i ./src/styles/input.css -o ./public/css/style.css --minify",
+    "css:watch": "tailwindcss -i ./src/styles/input.css -o ./public/css/style.css --watch",
+    "build": "npm run css:build",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo",
+    "db:seed": "sequelize-cli db:seed:all"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "connect-session-sequelize": "^7.1.7",
+    "cookie-parser": "^1.4.6",
+    "csrf-csrf": "^3.0.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-rate-limit": "^7.4.0",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.2.0",
+    "helmet": "^7.1.0",
+    "isomorphic-dompurify": "^2.16.0",
+    "multer": "^2.2.0",
+    "mysql2": "^3.11.3",
+    "nodemailer": "^6.9.15",
+    "sequelize": "^6.37.3",
+    "sharp": "^0.33.5",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.1.4",
+    "quill": "^2.0.3",
+    "sequelize-cli": "^6.6.2",
+    "sqlite3": "^5.1.7",
+    "tailwindcss": "^3.4.13"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true,
+    "sharp@0.33.5": true,
+    "sqlite3@5.1.7": true
+  }
+}

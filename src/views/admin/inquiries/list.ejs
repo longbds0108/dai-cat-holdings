@@ -1,0 +1,45 @@
+<div class="card overflow-x-auto">
+  <table class="w-full text-sm">
+    <thead class="bg-surface-muted text-left text-xs uppercase tracking-widest2 text-ink-muted">
+      <tr>
+        <th class="px-4 py-3">Họ tên</th>
+        <th class="px-4 py-3">Liên hệ</th>
+        <th class="px-4 py-3">Dự án quan tâm</th>
+        <th class="px-4 py-3">Nội dung</th>
+        <th class="px-4 py-3">Ngày gửi</th>
+        <th class="px-4 py-3">Trạng thái</th>
+        <th class="px-4 py-3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% inquiries.forEach(inq => { %>
+        <tr class="border-t border-line align-top">
+          <td class="px-4 py-3 font-medium text-primary"><%= inq.name %></td>
+          <td class="px-4 py-3 text-ink-muted">
+            <div><%= inq.email %></div>
+            <div><%= inq.phone || '' %></div>
+          </td>
+          <td class="px-4 py-3"><%= inq.project ? inq.project.titleVi : '—' %></td>
+          <td class="px-4 py-3 max-w-xs truncate" title="<%= inq.message %>"><%= inq.message %></td>
+          <td class="px-4 py-3 text-ink-muted"><%= new Date(inq.createdAt).toLocaleDateString('vi-VN') %></td>
+          <td class="px-4 py-3">
+            <span class="px-2 py-1 text-xs <%= inq.status === 'new' ? 'bg-accent/10 text-accent' : 'bg-surface-muted text-ink-muted' %>">
+              <%= inq.status === 'new' ? 'Mới' : 'Đã xử lý' %>
+            </span>
+          </td>
+          <td class="px-4 py-3">
+            <% if (inq.status === 'new') { %>
+              <form method="post" action="/admin/inquiries/<%= inq.id %>/handled">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <button type="submit" class="text-accent hover:underline">Đánh dấu đã xử lý</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }) %>
+      <% if (inquiries.length === 0) { %>
+        <tr><td colspan="7" class="px-4 py-6 text-center text-ink-muted">Chưa có liên hệ nào.</td></tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

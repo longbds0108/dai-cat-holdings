@@ -1,0 +1,107 @@
+{
+  "site": {
+    "name": "DAI CAT HOLDINGS",
+    "tagline": "Building Enduring Value"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "projects": "Projects",
+    "news": "News",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "Building Value That Lasts",
+    "hero_subtitle": "DAI CAT HOLDINGS develops premium real estate projects, delivering lasting prosperity to investors and communities.",
+    "hero_cta": "Explore Projects",
+    "stats_title": "Why Choose Dai Cat",
+    "featured_projects": "Featured Projects",
+    "featured_projects_cta": "View All Projects",
+    "latest_news": "Latest News",
+    "latest_news_cta": "View All News",
+    "cta_title": "Ready to Partner with Dai Cat?",
+    "cta_subtitle": "Leave your details and our advisory team will reach out within 24 hours.",
+    "cta_button": "Get a Consultation",
+    "why_1_title": "Trust & Transparency",
+    "why_1_text": "Clear legal commitments, accompanying clients throughout their real estate ownership journey.",
+    "why_2_title": "Strategic Locations",
+    "why_2_text": "A curated project portfolio in areas with sustainable growth potential.",
+    "why_3_title": "Delivery Quality",
+    "why_3_text": "Rigorous construction management ensuring quality that exceeds expectations."
+  },
+  "stats": {
+    "years": "Years of Experience",
+    "projects": "Projects Delivered",
+    "area": "sqm Handed Over",
+    "customers": "Satisfied Clients"
+  },
+  "about": {
+    "title": "About Dai Cat Holdings",
+    "intro": "Founded with the ambition to build lasting value, Dai Cat Holdings is a trusted real estate developer, accompanying thousands of clients on their journey to a better home and a sound investment.",
+    "vision_title": "Vision",
+    "vision_text": "To become a leading regional real estate group, pioneering sustainable urban development.",
+    "mission_title": "Mission",
+    "mission_text": "To create quality living spaces that elevate life for every client and community.",
+    "team_title": "Leadership Team",
+    "milestones_title": "Key Milestones",
+    "team_1_role": "Chairman of the Board",
+    "team_2_role": "Chief Executive Officer",
+    "team_3_role": "Head of Project Development",
+    "milestone_1_year": "2011",
+    "milestone_1_text": "Dai Cat Holdings founded, starting with its first residential project.",
+    "milestone_2_year": "2016",
+    "milestone_2_text": "Expanded portfolio into the resort villa segment.",
+    "milestone_3_year": "2021",
+    "milestone_3_text": "Launched its first grade-A office tower in the city center.",
+    "milestone_4_year": "2025",
+    "milestone_4_text": "Grew to a regional scale with a portfolio of over 30 delivered and ongoing projects."
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Portfolio of real estate projects developed and co-developed by Dai Cat Holdings.",
+    "filter_all": "All",
+    "filter_type": "Type",
+    "filter_location": "Location",
+    "filter_status": "Status",
+    "status_selling": "Now Selling",
+    "status_upcoming": "Coming Soon",
+    "status_completed": "Completed",
+    "view_detail": "View Details",
+    "back_to_list": "Back to Projects",
+    "register_interest": "Request Consultation",
+    "area_label": "Area",
+    "price_label": "Price",
+    "gallery": "Project Gallery",
+    "no_results": "No matching projects found."
+  },
+  "news": {
+    "title": "News",
+    "subtitle": "The latest updates from Dai Cat Holdings.",
+    "read_more": "Read More",
+    "back_to_list": "Back to News",
+    "published_on": "Published on"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "We're always ready to listen and advise you.",
+    "form_name": "Full Name",
+    "form_email": "Email",
+    "form_phone": "Phone Number",
+    "form_message": "Message",
+    "form_submit": "Send Request",
+    "office_title": "Office",
+    "success": "Thank you for reaching out! Our team will respond shortly.",
+    "error": "Something went wrong, please try again."
+  },
+  "footer": {
+    "about_text": "Dai Cat Holdings - Building sustainable real estate value.",
+    "quick_links": "Quick Links",
+    "contact_info": "Contact Info",
+    "rights": "All rights reserved"
+  },
+  "notfound": {
+    "title": "Page Not Found",
+    "text": "The page you're looking for doesn't exist or has been moved.",
+    "back_home": "Back to Home"
+  }
+}

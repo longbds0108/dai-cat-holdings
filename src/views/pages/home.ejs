@@ -1,0 +1,112 @@
+<section class="relative h-[92vh] min-h-[560px] flex items-end overflow-hidden">
+  <img
+    src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1920"
+    alt="<%= t('home.hero_title') %>"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-primary/10"></div>
+
+  <div class="relative container-page pb-20 text-white" data-reveal>
+    <p class="eyebrow text-accent-light mb-4"><%= t('site.tagline') %></p>
+    <h1 class="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.1] max-w-3xl text-white mb-6">
+      <%= t('home.hero_title') %>
+    </h1>
+    <p class="max-w-xl text-white/80 mb-10"><%= t('home.hero_subtitle') %></p>
+    <a href="<%= basePath %>/projects" class="btn-primary bg-accent hover:bg-white hover:text-primary"><%= t('home.hero_cta') %></a>
+  </div>
+</section>
+
+<section class="border-b border-line">
+  <div class="container-page py-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-reveal-stagger>
+    <div data-reveal-item>
+      <div class="font-display text-4xl md:text-5xl text-accent mb-2"><span data-counter="15">0</span>+</div>
+      <p class="text-xs tracking-widest2 uppercase text-ink-muted"><%= t('stats.years') %></p>
+    </div>
+    <div data-reveal-item>
+      <div class="font-display text-4xl md:text-5xl text-accent mb-2"><span data-counter="32">0</span></div>
+      <p class="text-xs tracking-widest2 uppercase text-ink-muted"><%= t('stats.projects') %></p>
+    </div>
+    <div data-reveal-item>
+      <div class="font-display text-4xl md:text-5xl text-accent mb-2"><span data-counter="850000">0</span></div>
+      <p class="text-xs tracking-widest2 uppercase text-ink-muted"><%= t('stats.area') %></p>
+    </div>
+    <div data-reveal-item>
+      <div class="font-display text-4xl md:text-5xl text-accent mb-2"><span data-counter="5000">0</span>+</div>
+      <p class="text-xs tracking-widest2 uppercase text-ink-muted"><%= t('stats.customers') %></p>
+    </div>
+  </div>
+</section>
+
+<section class="py-24">
+  <div class="container-page">
+    <div class="flex items-end justify-between mb-12" data-reveal>
+      <div>
+        <p class="eyebrow mb-3"><%= t('nav.projects') %></p>
+        <h2 class="section-title"><%= t('home.featured_projects') %></h2>
+      </div>
+      <a href="<%= basePath %>/projects" class="nav-link hidden md:inline-flex border-b border-primary pb-1">
+        <%= t('home.featured_projects_cta') %>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-reveal-stagger>
+      <% featuredProjects.forEach(project => { %>
+        <%- include('../partials/project-card', { project, localize: (r,f) => localize(r,f) }) %>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-primary text-white">
+  <div class="container-page grid grid-cols-1 md:grid-cols-3 gap-10" data-reveal-stagger>
+    <div data-reveal-item>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent-light mb-5">
+        <path d="M12 2 3 7v6c0 5 4 8.5 9 9 5-.5 9-4 9-9V7l-9-5Z" stroke-linejoin="round" />
+      </svg>
+      <h3 class="text-white font-display text-xl mb-3"><%= t('home.why_1_title') %></h3>
+      <p class="text-white/70 text-sm leading-relaxed"><%= t('home.why_1_text') %></p>
+    </div>
+    <div data-reveal-item>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent-light mb-5">
+        <path d="M3 21V8l9-5 9 5v13M8 21v-6h8v6" stroke-linejoin="round" stroke-linecap="round" />
+      </svg>
+      <h3 class="text-white font-display text-xl mb-3"><%= t('home.why_2_title') %></h3>
+      <p class="text-white/70 text-sm leading-relaxed"><%= t('home.why_2_text') %></p>
+    </div>
+    <div data-reveal-item>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent-light mb-5">
+        <path d="M12 21c4-3 8-6.5 8-11.5A6.5 6.5 0 0 0 12 5a6.5 6.5 0 0 0-8 4.5C4 14.5 8 18 12 21Z" stroke-linejoin="round" />
+      </svg>
+      <h3 class="text-white font-display text-xl mb-3"><%= t('home.why_3_title') %></h3>
+      <p class="text-white/70 text-sm leading-relaxed"><%= t('home.why_3_text') %></p>
+    </div>
+  </div>
+</section>
+
+<section class="py-24">
+  <div class="container-page">
+    <div class="flex items-end justify-between mb-12" data-reveal>
+      <div>
+        <p class="eyebrow mb-3"><%= t('nav.news') %></p>
+        <h2 class="section-title"><%= t('home.latest_news') %></h2>
+      </div>
+      <a href="<%= basePath %>/news" class="nav-link hidden md:inline-flex border-b border-primary pb-1">
+        <%= t('home.latest_news_cta') %>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-reveal-stagger>
+      <% latestNews.forEach(post => { %>
+        <%- include('../partials/news-card', { post, localize: (r,f) => localize(r,f) }) %>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-surface-muted">
+  <div class="container-page text-center max-w-2xl mx-auto" data-reveal>
+    <h2 class="section-title mb-4"><%= t('home.cta_title') %></h2>
+    <p class="text-ink-muted mb-10"><%= t('home.cta_subtitle') %></p>
+    <a href="<%= basePath %>/contact" class="btn-primary"><%= t('home.cta_button') %></a>
+  </div>
+</section>

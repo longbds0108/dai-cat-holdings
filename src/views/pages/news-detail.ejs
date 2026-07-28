@@ -1,0 +1,21 @@
+<section class="relative h-[50vh] min-h-[380px] flex items-end overflow-hidden">
+  <img src="<%= post.coverImage %>" alt="<%= localize(post, 'title') %>" class="absolute inset-0 w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-primary/10"></div>
+  <div class="relative container-page pb-16 text-white" data-reveal>
+    <a href="<%= basePath %>/news" class="text-white/70 text-xs tracking-widest2 uppercase mb-4 inline-block hover:text-accent-light">
+      &larr; <%= t('news.back_to_list') %>
+    </a>
+    <p class="eyebrow text-accent-light mb-3">
+      <%= t('news.published_on') %> <%= new Date(post.publishedAt).toLocaleDateString(locale === 'vi' ? 'vi-VN' : 'en-US') %>
+    </p>
+    <h1 class="font-display text-3xl md:text-5xl text-white max-w-3xl"><%= localize(post, 'title') %></h1>
+  </div>
+</section>
+
+<section class="py-20">
+  <div class="container-page max-w-3xl" data-reveal>
+    <div class="prose max-w-none text-ink leading-relaxed text-lg">
+      <%- localize(post, 'content') %>
+    </div>
+  </div>
+</section>

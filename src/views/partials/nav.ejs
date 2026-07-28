@@ -1,0 +1,35 @@
+<header class="sticky top-0 z-50 bg-surface/95 backdrop-blur border-b border-line">
+  <div class="container-page flex items-center justify-between h-20">
+    <a href="<%= basePath %>/" class="font-display text-xl tracking-widest2 text-primary">
+      <%= t('site.name') %>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="<%= basePath %>/" class="nav-link"><%= t('nav.home') %></a>
+      <a href="<%= basePath %>/about" class="nav-link"><%= t('nav.about') %></a>
+      <a href="<%= basePath %>/projects" class="nav-link"><%= t('nav.projects') %></a>
+      <a href="<%= basePath %>/news" class="nav-link"><%= t('nav.news') %></a>
+      <a href="<%= basePath %>/contact" class="nav-link"><%= t('nav.contact') %></a>
+      <a href="/<%= otherLocale %><%= currentPath %>" class="nav-link border border-line px-3 py-1">
+        <%= otherLocale.toUpperCase() %>
+      </a>
+    </nav>
+
+    <button id="mobile-menu-btn" class="md:hidden cursor-pointer" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="md:hidden hidden flex-col gap-1 border-t border-line px-6 pb-6">
+    <a href="<%= basePath %>/" class="nav-link block py-3"><%= t('nav.home') %></a>
+    <a href="<%= basePath %>/about" class="nav-link block py-3"><%= t('nav.about') %></a>
+    <a href="<%= basePath %>/projects" class="nav-link block py-3"><%= t('nav.projects') %></a>
+    <a href="<%= basePath %>/news" class="nav-link block py-3"><%= t('nav.news') %></a>
+    <a href="<%= basePath %>/contact" class="nav-link block py-3"><%= t('nav.contact') %></a>
+    <a href="/<%= otherLocale %><%= currentPath %>" class="nav-link block py-3">
+      <%= otherLocale.toUpperCase() %>
+    </a>
+  </nav>
+</header>

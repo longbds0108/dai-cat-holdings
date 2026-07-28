@@ -1,0 +1,37 @@
+<section class="py-20 border-b border-line">
+  <div class="container-page" data-reveal>
+    <p class="eyebrow mb-3"><%= t('nav.projects') %></p>
+    <h1 class="section-title mb-4"><%= t('projects.title') %></h1>
+    <p class="text-ink-muted max-w-xl"><%= t('projects.subtitle') %></p>
+  </div>
+</section>
+
+<section class="py-10">
+  <div class="container-page">
+    <form method="get" class="flex flex-wrap gap-4 mb-12">
+      <select name="status" onchange="this.form.submit()" class="form-input max-w-[220px]">
+        <option value=""><%= t('projects.filter_status') %>: <%= t('projects.filter_all') %></option>
+        <option value="selling" <%= currentStatus === 'selling' ? 'selected' : '' %>><%= t('projects.status_selling') %></option>
+        <option value="upcoming" <%= currentStatus === 'upcoming' ? 'selected' : '' %>><%= t('projects.status_upcoming') %></option>
+        <option value="completed" <%= currentStatus === 'completed' ? 'selected' : '' %>><%= t('projects.status_completed') %></option>
+      </select>
+
+      <select name="type" onchange="this.form.submit()" class="form-input max-w-[220px]">
+        <option value=""><%= t('projects.filter_type') %>: <%= t('projects.filter_all') %></option>
+        <% types.forEach(type => { %>
+          <option value="<%= type %>" <%= currentType === type ? 'selected' : '' %>><%= type %></option>
+        <% }) %>
+      </select>
+    </form>
+
+    <% if (projects.length === 0) { %>
+      <p class="text-ink-muted py-20 text-center"><%= t('projects.no_results') %></p>
+    <% } else { %>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-reveal-stagger>
+        <% projects.forEach(project => { %>
+          <%- include('../partials/project-card', { project, localize }) %>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</section>

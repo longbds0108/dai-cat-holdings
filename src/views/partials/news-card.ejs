@@ -1,0 +1,19 @@
+<a href="<%= basePath %>/news/<%= post.slug %>" class="group block card overflow-hidden" data-reveal-item>
+  <div class="relative aspect-[16/10] overflow-hidden bg-surface-muted">
+    <img
+      src="<%= post.coverImage %>"
+      alt="<%= localize(post, 'title') %>"
+      loading="lazy"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+    />
+  </div>
+  <div class="p-6">
+    <p class="text-xs text-ink-muted mb-2">
+      <%= t('news.published_on') %> <%= new Date(post.publishedAt).toLocaleDateString(locale === 'vi' ? 'vi-VN' : 'en-US') %>
+    </p>
+    <h3 class="font-display text-lg text-primary mb-2 group-hover:text-accent transition-colors duration-250">
+      <%= localize(post, 'title') %>
+    </h3>
+    <p class="text-sm text-ink-muted line-clamp-2"><%= localize(post, 'excerpt') %></p>
+  </div>
+</a>

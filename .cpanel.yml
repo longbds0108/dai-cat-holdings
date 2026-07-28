@@ -1,0 +1,27 @@
+---
+# cPanel "Git Version Control" deployment file.
+# Customize DEPLOYPATH and NODEENV below to match your actual cPanel account
+# (see README.md > "Deploy lên cPanel" for how to find these values), then in
+# cPanel: Git Version Control > your repo > "Manage" > pull the latest commit,
+# which runs the tasks below automatically.
+deployment:
+  tasks:
+    # 1) Path to the folder configured as the "Application root" in
+    #    cPanel > Setup Node.js App (NOT public_html directly).
+    - export DEPLOYPATH=/home/USERNAME/dai-cat-holdings-website/
+
+    # 2) Copy the repository contents into that folder.
+    - /bin/cp -R * "$DEPLOYPATH"
+    - /bin/cp -R .cpanel.yml "$DEPLOYPATH" 2>/dev/null || true
+
+    # 3) Activate the Node.js virtual environment cPanel created for this app
+    #    (path + Node version come from Setup Node.js App > your app > "Enter to virtual env" command),
+    #    install production dependencies, and build the CSS bundle.
+    - source /home/USERNAME/nodevenv/dai-cat-holdings-website/18/bin/activate && cd "$DEPLOYPATH" && npm install --production --no-audit --no-fund
+    - source /home/USERNAME/nodevenv/dai-cat-holdings-website/18/bin/activate && cd "$DEPLOYPATH" && npx tailwindcss -i ./src/styles/input.css -o ./public/css/style.css --minify
+
+    # 4) Run any new database migrations (safe to run every deploy — already-applied ones are skipped).
+    - source /home/USERNAME/nodevenv/dai-cat-holdings-website/18/bin/activate && cd "$DEPLOYPATH" && npx sequelize-cli db:migrate --env production
+
+    # 5) Restart the Passenger app so it picks up the new code.
+    - mkdir -p "$DEPLOYPATH/tmp" && touch "$DEPLOYPATH/tmp/restart.txt"

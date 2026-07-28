@@ -1,0 +1,35 @@
+<div class="flex justify-end mb-6">
+  <a href="/admin/news/new" class="btn-primary">+ Thêm tin tức</a>
+</div>
+
+<div class="card overflow-x-auto">
+  <table class="w-full text-sm">
+    <thead class="bg-surface-muted text-left text-xs uppercase tracking-widest2 text-ink-muted">
+      <tr>
+        <th class="px-4 py-3">Tiêu đề</th>
+        <th class="px-4 py-3">Ngày đăng</th>
+        <th class="px-4 py-3">Trạng thái</th>
+        <th class="px-4 py-3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% posts.forEach(p => { %>
+        <tr class="border-t border-line">
+          <td class="px-4 py-3 font-medium text-primary"><%= p.titleVi %></td>
+          <td class="px-4 py-3 text-ink-muted"><%= new Date(p.publishedAt).toLocaleDateString('vi-VN') %></td>
+          <td class="px-4 py-3"><%= p.isPublished ? 'Công khai' : 'Nháp' %></td>
+          <td class="px-4 py-3 text-right space-x-3">
+            <a href="/admin/news/<%= p.id %>/edit" class="text-accent hover:underline">Sửa</a>
+            <form method="post" action="/admin/news/<%= p.id %>/delete" class="inline" onsubmit="return confirm('Xoá bài viết này?')">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+              <button type="submit" class="text-red-600 hover:underline">Xoá</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+      <% if (posts.length === 0) { %>
+        <tr><td colspan="4" class="px-4 py-6 text-center text-ink-muted">Chưa có bài viết nào.</td></tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

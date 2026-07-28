@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="/vendor/quill/quill.snow.css" />
+
+<form method="post" action="<%= project ? `/admin/projects/${project.id}` : '/admin/projects' %>" enctype="multipart/form-data" class="space-y-8 max-w-3xl">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label class="form-label">Tên dự án (Tiếng Việt)</label>
+      <input type="text" name="titleVi" required class="form-input" value="<%= project ? project.titleVi : '' %>" />
+    </div>
+    <div>
+      <label class="form-label">Project Name (English)</label>
+      <input type="text" name="titleEn" required class="form-input" value="<%= project ? project.titleEn : '' %>" />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label class="form-label">Tóm tắt (Tiếng Việt)</label>
+      <textarea name="summaryVi" rows="2" class="form-input"><%= project ? project.summaryVi : '' %></textarea>
+    </div>
+    <div>
+      <label class="form-label">Summary (English)</label>
+      <textarea name="summaryEn" rows="2" class="form-input"><%= project ? project.summaryEn : '' %></textarea>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label class="form-label">Mô tả chi tiết (Tiếng Việt)</label>
+      <div id="editor-vi" style="min-height:160px;background:#fff;"><%- project ? project.descriptionVi : '' %></div>
+      <textarea name="descriptionVi" class="hidden" id="input-descriptionVi"></textarea>
+    </div>
+    <div>
+      <label class="form-label">Description (English)</label>
+      <div id="editor-en" style="min-height:160px;background:#fff;"><%- project ? project.descriptionEn : '' %></div>
+      <textarea name="descriptionEn" class="hidden" id="input-descriptionEn"></textarea>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div>
+      <label class="form-label">Loại hình</label>
+      <select name="type" class="form-input">
+        <% ['apartment','villa','townhouse','commercial','land'].forEach(t => { %>
+          <option value="<%= t %>" <%= project && project.type === t ? 'selected' : '' %>><%= t %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div>
+      <label class="form-label">Trạng thái</label>
+      <select name="status" class="form-input">
+        <% ['upcoming','selling','completed'].forEach(s => { %>
+          <option value="<%= s %>" <%= project && project.status === s ? 'selected' : '' %>><%= s %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div>
+      <label class="form-label">Diện tích</label>
+      <input type="text" name="areaText" class="form-input" value="<%= project ? project.areaText : '' %>" />
+    </div>
+    <div>
+      <label class="form-label">Mức giá</label>
+      <input type="text" name="priceFromText" class="form-input" value="<%= project ? project.priceFromText : '' %>" />
+    </div>
+  </div>
+
+  <div>
+    <label class="form-label">Khu vực</label>
+    <input type="text" name="location" class="form-input" value="<%= project ? project.location : '' %>" />
+  </div>
+
+  <div>
+    <label class="form-label">Hình ảnh (chọn nhiều, ảnh đầu tiên sẽ là ảnh đại diện)</label>
+    <input type="file" name="images" accept="image/png,image/jpeg,image/webp" multiple class="form-input" />
+    <% if (project && project.images && project.images.length) { %>
+      <div class="flex gap-3 mt-3">
+        <% project.images.forEach(src => { %>
+          <img src="<%= src %>" class="w-20 h-20 object-cover" />
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+
+  <div class="flex gap-8">
+    <label class="flex items-center gap-2 text-sm">
+      <input type="checkbox" name="isFeatured" <%= project && project.isFeatured ? 'checked' : '' %> /> Dự án nổi bật
+    </label>
+    <label class="flex items-center gap-2 text-sm">
+      <input type="checkbox" name="isPublished" <%= !project || project.isPublished ? 'checked' : '' %> /> Hiển thị công khai
+    </label>
+  </div>
+
+  <button type="submit" class="btn-primary">Lưu dự án</button>
+</form>
+
+<script src="/vendor/quill/quill.js"></script>
+<script src="/js/admin-editor.js"></script>

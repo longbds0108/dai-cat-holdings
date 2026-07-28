@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= (typeof title !== 'undefined' && title) ? title + ' | ' + t('site.name') : t('site.name') %></title>
+  <meta name="description" content="<%= typeof metaDescription !== 'undefined' ? metaDescription : t('home.hero_subtitle') %>" />
+  <link rel="canonical" href="<%= (process.env.BASE_URL || '') + currentPath %>" />
+  <link rel="alternate" hreflang="vi" href="<%= (process.env.BASE_URL || '') + '/vi' + currentPath %>" />
+  <link rel="alternate" hreflang="en" href="<%= (process.env.BASE_URL || '') + '/en' + currentPath %>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="min-h-screen flex flex-col">
+  <%- include('../partials/nav') %>
+
+  <main class="flex-1">
+    <%- body %>
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

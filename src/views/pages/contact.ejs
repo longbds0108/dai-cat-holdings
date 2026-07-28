@@ -1,0 +1,67 @@
+<section class="py-20 border-b border-line">
+  <div class="container-page" data-reveal>
+    <p class="eyebrow mb-3"><%= t('nav.contact') %></p>
+    <h1 class="section-title mb-4"><%= t('contact.title') %></h1>
+    <p class="text-ink-muted max-w-xl"><%= t('contact.subtitle') %></p>
+  </div>
+</section>
+
+<section class="py-20">
+  <div class="container-page grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <div data-reveal>
+      <% if (messages && messages.success && messages.success.length) { %>
+        <div class="bg-primary text-white p-4 mb-8 text-sm"><%= messages.success[0] %></div>
+      <% } %>
+
+      <% if (errors && errors.length) { %>
+        <div class="bg-red-50 border border-red-200 text-red-700 p-4 mb-8 text-sm">
+          <ul class="list-disc pl-5">
+            <% errors.forEach(e => { %><li><%= e.msg %></li><% }) %>
+          </ul>
+        </div>
+      <% } %>
+
+      <form method="post" action="<%= basePath %>/contact" class="space-y-6">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <div>
+          <label class="form-label"><%= t('contact.form_name') %></label>
+          <input type="text" name="name" required class="form-input" value="<%= values.name || '' %>" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="form-label"><%= t('contact.form_email') %></label>
+            <input type="email" name="email" required class="form-input" value="<%= values.email || '' %>" />
+          </div>
+          <div>
+            <label class="form-label"><%= t('contact.form_phone') %></label>
+            <input type="tel" name="phone" class="form-input" value="<%= values.phone || '' %>" />
+          </div>
+        </div>
+        <div>
+          <label class="form-label"><%= t('contact.form_message') %></label>
+          <textarea name="message" rows="5" class="form-input"><%= values.message || '' %></textarea>
+        </div>
+        <button type="submit" class="btn-primary"><%= t('contact.form_submit') %></button>
+      </form>
+    </div>
+
+    <div data-reveal>
+      <div class="card p-10 mb-8">
+        <p class="eyebrow mb-4"><%= t('contact.office_title') %></p>
+        <ul class="space-y-3 text-ink">
+          <li><%= settings.company_address %></li>
+          <li><%= settings.company_phone %></li>
+          <li><%= settings.company_email %></li>
+        </ul>
+      </div>
+      <div class="aspect-video overflow-hidden bg-surface-muted">
+        <iframe
+          title="map"
+          class="w-full h-full border-0"
+          loading="lazy"
+          src="https://www.google.com/maps?q=<%= encodeURIComponent(settings.company_address || 'Ho Chi Minh City') %>&output=embed"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

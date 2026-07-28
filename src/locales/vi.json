@@ -1,0 +1,107 @@
+{
+  "site": {
+    "name": "ĐẠI CÁT HOLDINGS",
+    "tagline": "Kiến tạo giá trị bền vững"
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Về chúng tôi",
+    "projects": "Dự án",
+    "news": "Tin tức",
+    "contact": "Liên hệ"
+  },
+  "home": {
+    "hero_title": "Kiến tạo những giá trị trường tồn",
+    "hero_subtitle": "ĐẠI CÁT HOLDINGS phát triển các dự án bất động sản cao cấp, mang lại thịnh vượng bền vững cho nhà đầu tư và cộng đồng.",
+    "hero_cta": "Khám phá dự án",
+    "stats_title": "Vì sao chọn Đại Cát",
+    "featured_projects": "Dự án nổi bật",
+    "featured_projects_cta": "Xem tất cả dự án",
+    "latest_news": "Tin tức mới nhất",
+    "latest_news_cta": "Xem tất cả tin tức",
+    "cta_title": "Sẵn sàng đồng hành cùng Đại Cát?",
+    "cta_subtitle": "Để lại thông tin, đội ngũ tư vấn của chúng tôi sẽ liên hệ trong 24 giờ.",
+    "cta_button": "Nhận tư vấn ngay",
+    "why_1_title": "Uy tín & Minh bạch",
+    "why_1_text": "Cam kết pháp lý rõ ràng, đồng hành cùng khách hàng trong suốt hành trình sở hữu bất động sản.",
+    "why_2_title": "Vị trí chiến lược",
+    "why_2_text": "Danh mục dự án được chọn lọc tại các khu vực có tiềm năng tăng trưởng bền vững.",
+    "why_3_title": "Chất lượng bàn giao",
+    "why_3_text": "Quản lý thi công nghiêm ngặt, đảm bảo chất lượng công trình vượt trên kỳ vọng."
+  },
+  "stats": {
+    "years": "Năm kinh nghiệm",
+    "projects": "Dự án đã triển khai",
+    "area": "m² sàn đã bàn giao",
+    "customers": "Khách hàng tin tưởng"
+  },
+  "about": {
+    "title": "Về Đại Cát Holdings",
+    "intro": "Được thành lập với khát vọng kiến tạo những công trình mang giá trị bền vững, Đại Cát Holdings tự hào là đơn vị phát triển bất động sản uy tín, đồng hành cùng hàng nghìn khách hàng trên hành trình an cư và đầu tư.",
+    "vision_title": "Tầm nhìn",
+    "vision_text": "Trở thành tập đoàn bất động sản hàng đầu khu vực, tiên phong trong phát triển đô thị bền vững.",
+    "mission_title": "Sứ mệnh",
+    "mission_text": "Kiến tạo không gian sống chất lượng, nâng tầm giá trị cuộc sống cho mỗi khách hàng và cộng đồng.",
+    "team_title": "Đội ngũ lãnh đạo",
+    "milestones_title": "Những cột mốc đáng nhớ",
+    "team_1_role": "Chủ tịch Hội đồng Quản trị",
+    "team_2_role": "Tổng Giám đốc",
+    "team_3_role": "Giám đốc Phát triển Dự án",
+    "milestone_1_year": "2011",
+    "milestone_1_text": "Thành lập Đại Cát Holdings, khởi đầu với dự án nhà ở đầu tiên.",
+    "milestone_2_year": "2016",
+    "milestone_2_text": "Mở rộng danh mục sang phân khúc biệt thự nghỉ dưỡng.",
+    "milestone_3_year": "2021",
+    "milestone_3_text": "Ra mắt tòa nhà văn phòng hạng A đầu tiên tại trung tâm thành phố.",
+    "milestone_4_year": "2025",
+    "milestone_4_text": "Vươn tầm khu vực với danh mục hơn 30 dự án đã và đang triển khai."
+  },
+  "projects": {
+    "title": "Dự án",
+    "subtitle": "Danh mục các dự án bất động sản do Đại Cát Holdings phát triển và hợp tác phát triển.",
+    "filter_all": "Tất cả",
+    "filter_type": "Loại hình",
+    "filter_location": "Khu vực",
+    "filter_status": "Trạng thái",
+    "status_selling": "Đang mở bán",
+    "status_upcoming": "Sắp mở bán",
+    "status_completed": "Đã bàn giao",
+    "view_detail": "Xem chi tiết",
+    "back_to_list": "Quay lại danh sách dự án",
+    "register_interest": "Đăng ký nhận tư vấn",
+    "area_label": "Diện tích",
+    "price_label": "Mức giá",
+    "gallery": "Hình ảnh dự án",
+    "no_results": "Không tìm thấy dự án phù hợp."
+  },
+  "news": {
+    "title": "Tin tức",
+    "subtitle": "Cập nhật những thông tin mới nhất từ Đại Cát Holdings.",
+    "read_more": "Đọc tiếp",
+    "back_to_list": "Quay lại tin tức",
+    "published_on": "Đăng ngày"
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "subtitle": "Chúng tôi luôn sẵn sàng lắng nghe và tư vấn cho bạn.",
+    "form_name": "Họ và tên",
+    "form_email": "Email",
+    "form_phone": "Số điện thoại",
+    "form_message": "Nội dung",
+    "form_submit": "Gửi yêu cầu",
+    "office_title": "Văn phòng",
+    "success": "Cảm ơn bạn đã liên hệ! Đội ngũ Đại Cát sẽ phản hồi trong thời gian sớm nhất.",
+    "error": "Đã có lỗi xảy ra, vui lòng thử lại."
+  },
+  "footer": {
+    "about_text": "Đại Cát Holdings - Kiến tạo giá trị bất động sản bền vững.",
+    "quick_links": "Liên kết nhanh",
+    "contact_info": "Thông tin liên hệ",
+    "rights": "Bản quyền thuộc về"
+  },
+  "notfound": {
+    "title": "Không tìm thấy trang",
+    "text": "Trang bạn tìm kiếm không tồn tại hoặc đã được di chuyển.",
+    "back_home": "Về trang chủ"
+  }
+}
